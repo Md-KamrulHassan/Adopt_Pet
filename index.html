@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Daisy and Tailwind -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.24/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- tailwind customize -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+            },
+          },
+          fontFamily: {
+            lato: ["Lato", "sans-serif"],
+          },
+        },
+      };
+    </script>
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lexend:wght@100..900&family=Manrope:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Adopt Your Pet</title>
+  </head>
+  <body class="font-lato">
+    <header>
+      <!-- navbar -->
+      <nav class="md:w-11/12 mx-auto py-3">
+        <div class="navbar justify-between">
+          <!-- left -->
+          <div>
+            <div class="dropdown">
+              <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h8m-8 6h16"
+                  />
+                </svg>
+              </div>
+              <ul
+                tabindex="0"
+                class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              >
+                <li><a>Item 1</a></li>
+                <li>
+                  <a>Parent</a>
+                  <ul class="p-2">
+                    <li><a>Submenu 1</a></li>
+                    <li><a>Submenu 2</a></li>
+                  </ul>
+                </li>
+                <li><a>Item 3</a></li>
+              </ul>
+            </div>
+            <div class="inline-flex items-center gap-2">
+              <img src="image/logo.webp" alt="" />
+              <span class="font-bold text-xl">Peddy</span>
+            </div>
+          </div>
+          <!-- right -->
+          <div class="hidden lg:flex">
+            <ul class="flex gap-10 text-gray-500">
+              <li>Home</li>
+              <li>Shop</li>
+              <li>Contact</li>
+            </ul>
+          </div>
+          <!-- right -->
+          <div class="">
+            <div class="border rounded-full border-gray-400 p-2">
+              <img
+                class="w-6 h-6"
+                src="https://img.icons8.com/?size=64&id=15265&format=png"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- banner section -->
+      <div class="hero">
+        <div class="hero-content text-center">
+          <div>
+            <p class="text-gray-500 font-bold my-4">
+              Bringing Families Together
+            </p>
+            <h1 class="text-5xl font-bold">Yor Path to adoption starts here</h1>
+            <p class="py-6 text-xs">
+              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
+              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
+              et a id nisi.
+            </p>
+            <button class="bg-[#0E7A81] text-white px-7 py-3 rounded-xl">
+              View More
+            </button>
+
+            <img src="image/pet.webp" alt="" />
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="lg:w-10/12 mx-auto my-8">
+      <!-- intro section -->
+      <section class="text-center space-y-3">
+        <h3 class="font-bold text-4xl">Adopt Your Best Friend</h3>
+        <p class="text-gray-400">
+          It is a long established fact that a reader will be distracted by the
+          readable content of a <br />
+          page when looking at its layout. The point of using Lorem Ipsum is
+          that it has a.
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer bg-black text-neutral-content p-10">
+      <nav>
+        <div class="inline-flex items-center gap-2">
+          <img src="image/logo.webp" alt="" />
+          <span class="font-bold text-xl">Peddy</span>
+        </div>
+        <a class="link link-hover">Location: av. Washington 165, NY CA </a>
+        <a class="link link-hover">54003</a>
+        <a class="link link-hover">Phone: +31 85 964 47 25</a>
+        <a class="link link-hover">Email: info@yourdomain.com</a>
+        <a class="link link-hover">Openings hours: 9.00 AM - 5.00 PM</a>
+        <nav>
+          <h6 class="footer-title">Social</h6>
+          <div class="grid grid-flow-col gap-3">
+            <a
+              ><img
+                class="w-8"
+                src="https://img.icons8.com/?size=96&id=13912&format=png"
+                alt=""
+              />
+            </a>
+            <a>
+              <img
+                class="w-8"
+                src="https://img.icons8.com/?size=96&id=Xy10Jcu1L2Su&format=png"
+                alt=""
+              />
+            </a>
+            <a
+              ><img
+                class="w-8"
+                src="https://img.icons8.com/?size=96&id=yoQabS8l0qpr&format=png"
+                alt=""
+              />
+            </a>
+            <a>
+              <img
+                class="w-8"
+                src="https://img.icons8.com/?size=96&id=19318&format=png"
+                alt=""
+              />
+            </a>
+          </div>
+        </nav>
+      </nav>
+      <nav>
+        <h6 class="footer-title opacity-100">Useful Links</h6>
+        <a class="link link-hover text-gray-400">Home</a>
+        <a class="link link-hover text-gray-400">About us</a>
+        <a class="link link-hover text-gray-400">Animals</a>
+        <a class="link link-hover text-gray-400">Foundation</a>
+        <a class="link link-hover text-gray-400">Contact</a>
+      </nav>
+      <form>
+        <h6 class="footer-title opacity-100">Drop a message</h6>
+        <fieldset class="form-control w-80">
+          <div class="flex flex-col gap-4 w-60">
+            <input
+              type="text"
+              placeholder="Enter your mail"
+              class="input input-bordered join-item"
+            />
+            <button class="btn border-none bg-[#0E7A81] text-white">
+              Subscribe
+            </button>
+          </div>
+        </fieldset>
+      </form>
+    </footer>
+  </body>
+</html>
