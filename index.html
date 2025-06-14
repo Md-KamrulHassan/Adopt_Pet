@@ -27,6 +27,12 @@
       };
     </script>
 
+    <!-- font-awesome -->
+    <script
+      src="https://kit.fontawesome.com/8dabe0238a.js"
+      crossorigin="anonymous"
+    ></script>
+
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -37,7 +43,7 @@
 
     <title>Adopt Your Pet</title>
   </head>
-  <body class="font-lato">
+  <body class="font-lato container">
     <header>
       <!-- navbar -->
       <nav class="md:w-11/12 mx-auto py-3">
@@ -107,13 +113,13 @@
         <div class="hero-content text-center">
           <div>
             <p class="text-gray-500 font-bold my-4">
-              Bringing Families Together
+              Bringing Families Together ❤️
             </p>
             <h1 class="text-5xl font-bold">Yor Path to adoption starts here</h1>
             <p class="py-6 text-xs">
               Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
+              excepturi exercitationem quasi. <br />
+              In deleniti eaque aut repudiandae et a id nisi.
             </p>
             <button class="bg-[#0E7A81] text-white px-7 py-3 rounded-xl">
               View More
@@ -125,7 +131,7 @@
       </div>
     </header>
 
-    <main class="lg:w-10/12 mx-auto my-8">
+    <main class="lg:w-11/12 mx-auto my-8 space-y-8">
       <!-- intro section -->
       <section class="text-center space-y-3">
         <h3 class="font-bold text-4xl">Adopt Your Best Friend</h3>
@@ -136,9 +142,37 @@
           that it has a.
         </p>
       </section>
+
+      <!-- button section -->
+
+      <section id="button_section" class="flex gap-3 justify-between"></section>
+
+      <!-- best deal section -->
+      <section class="flex justify-between">
+        <h4 class="font-extrabold text-xl">Best Deal For You</h4>
+        <button
+          id="sort_button"
+          class="bg-[#0E7A81] text-white px-7 py-3 rounded-xl"
+        >
+          Sort By Price
+        </button>
+      </section>
+
+      <!-- pets section -->
+      <section id="pets_section" class="flex">
+        <!-- left -->
+        <div id="pet-details" class="grid grid-cols-3 gap-3 w-4/6"></div>
+        <!-- Right -->
+        <div id="all_pet" class="w-2/6">Hi</div>
+      </section>
+
+      <!-- modal section -->
+      <div id="modal-section"></div>
     </main>
 
-    <footer class="footer bg-black text-neutral-content p-10">
+    <footer
+      class="footer bg-black text-neutral-content p-10 place-items-center"
+    >
       <nav>
         <div class="inline-flex items-center gap-2">
           <img src="image/logo.webp" alt="" />
@@ -207,5 +241,8 @@
         </fieldset>
       </form>
     </footer>
+
+    <script src="pet.js"></script>
+    <script src="showDetails.js"></script>
   </body>
 </html>
