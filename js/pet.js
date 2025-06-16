@@ -24,9 +24,9 @@ const displayCatagory = (datas) => {
 
     const btn = document.createElement("Button");
     btn.id = `btn-${id}`;
-    btn.onclick = () => loadPetsByCatagory(category);
+    btn.onclick = () => loadPetsByCatagory(category, id);
     btn.classList =
-      "inline-flex items-center gap-3 px-14 py-2  border-gray-200 border rounded-lg";
+      "inline-flex items-center gap-3 px-14 py-2  border-gray-200 border rounded-lg catagory_button";
 
     btn.innerHTML = `
     
@@ -40,23 +40,51 @@ const displayCatagory = (datas) => {
 };
 
 // load pets and there details
-
+let allPets = [];
 const loadAllpets = async () => {
   const response = await fetch(
     "https://openapi.programming-hero.com/api/peddy/pets"
   );
   const result = await response.json();
 
-  displayPets(result.pets);
+  allPets = result.pets;
+
+  displayPets(allPets);
 };
 
-const loadPetsByCatagory = async (catagoryName) => {
-  console.log(catagoryName);
-  const response = await fetch(
-    `https://openapi.programming-hero.com/api/peddy/category/${catagoryName}`
-  );
-  const result = await response.json();
-  displayPets(result.data);
+// remove active button
+const removeActiveButton = () => {
+  const buttons = document.getElementsByClassName("catagory_button");
+
+  for (const btn of buttons) {
+    btn.classList.remove("bg-[#0E7A81]", "bg-opacity-15", "rounded-[50px]");
+  }
+
+  console.log(buttons);
+};
+// load pets by catagory button and show active button
+const loadPetsByCatagory = (catagoryName, id) => {
+  console.log(catagoryName, id);
+  // show active button
+  removeActiveButton();
+  const btn = document.getElementById(`btn-${id}`);
+  btn.classList.add("bg-[#0E7A81]", "bg-opacity-15", "rounded-[50px]");
+
+  console.log(btn);
+
+  // show spinner
+  document.getElementById("pets_section").style.display = "none";
+
+  document.getElementById("spinner_section").style.display = "flex";
+
+  setTimeout(async () => {
+    const response = await fetch(
+      `https://openapi.programming-hero.com/api/peddy/category/${catagoryName}`
+    );
+    const result = await response.json();
+    allPets = result.data;
+    displayPets(allPets);
+  }, 2000);
 };
 
 // {
@@ -73,7 +101,9 @@ const loadPetsByCatagory = async (catagoryName) => {
 // }
 
 const displayPets = (datas) => {
-  console.log(datas);
+  // hide spinner and show pet section when clicked form button
+  document.getElementById("spinner_section").style.display = "none";
+  document.getElementById("pets_section").style.display = "flex";
 
   const showPets = document.getElementById("pet-details");
 
@@ -84,7 +114,7 @@ const displayPets = (datas) => {
 
     showPets.innerHTML = `
 
-    <div class="hero bg-base-200 min-h-[60vh]">
+    <div class="hero bg-base-200 min-h-[80vh]">
   <div class="hero-content text-center">
     <div class="w-11/12">
     <img class="mx-auto" src= "image/error.webp"   />  
@@ -106,7 +136,7 @@ its layout. The point of using Lorem Ipsum is that it has a.
       showPets.classList.add("grid");
       const div = document.createElement("div");
 
-      div.classList = "card card-compact border border-gray-200 p-5 w-[300px] ";
+      div.classList = "card card-compact border border-gray-200 p-5  ";
 
       div.innerHTML = `
    
@@ -127,11 +157,11 @@ its layout. The point of using Lorem Ipsum is that it has a.
 
  
  </div>
- <div class="flex gap-3 justify-between"> 
- <button class="px-4 py-2 border border-[0E7A81] border-opacity-15 rounded-lg"> <img class="w-5"  src="image/like.png" /> </button>
+ <div class="flex gap-3 justify-between mt-2 flex-wrap"> 
+ <button onclick="likePets('${data.image}')" class="px-4 py-2 border border-[0E7A81] border-opacity-15 rounded-lg"> <img class="w-6"  src="image/like.png" /> </button>
 
-<button class= "font-bold text-lg px-4 py-2 text-[#0E7A81] border border-[0E7A81] border-opacity-15 rounded-lg "> Adopt </button>
-<button class= "font-bold text-lg px-4 py-2 text-[#0E7A81] border border-[0E7A81] border-opacity-15 rounded-lg " onclick="showDetails(${data.petId})"> Details </button>
+<button id='adopt_btn_${data.petId}' onclick = "countDown(${data.petId})" class= "font-bold text-lg px-4 py-2 text-[#0E7A81] hover:bg-[#0E7A81] hover:text-white border border-[0E7A81] border-opacity-15 rounded-lg "> Adopt </button>
+<button class= "font-bold text-lg px-4 py-2 text-[#0E7A81] hover:bg-[#0E7A81] hover:text-white border border-[0E7A81] border-opacity-15 rounded-lg " onclick="showDetails(${data.petId})"> Details </button>
 
  </div>
  </div>

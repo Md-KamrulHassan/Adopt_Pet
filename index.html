@@ -43,8 +43,8 @@
 
     <title>Adopt Your Pet</title>
   </head>
-  <body class="font-lato container">
-    <header>
+  <body class="font-lato">
+    <header class="container mx-auto">
       <!-- navbar -->
       <nav class="md:w-11/12 mx-auto py-3">
         <div class="navbar justify-between">
@@ -122,7 +122,7 @@
               In deleniti eaque aut repudiandae et a id nisi.
             </p>
             <button class="bg-[#0E7A81] text-white px-7 py-3 rounded-xl">
-              View More
+              <a href="#main"> View More</a>
             </button>
 
             <img src="image/pet.webp" alt="" />
@@ -131,7 +131,7 @@
       </div>
     </header>
 
-    <main class="lg:w-11/12 mx-auto my-8 space-y-8">
+    <main id="main" class="container lg:w-[85%] mx-auto my-8 space-y-8">
       <!-- intro section -->
       <section class="text-center space-y-3">
         <h3 class="font-bold text-4xl">Adopt Your Best Friend</h3>
@@ -145,34 +145,84 @@
 
       <!-- button section -->
 
-      <section id="button_section" class="flex gap-3 justify-between"></section>
+      <section
+        id="button_section"
+        class="flex gap-3 justify-between flex-wrap"
+      ></section>
+      <!-- spinner -->
 
       <!-- best deal section -->
-      <section class="flex justify-between">
+      <section
+        class="flex flex-col items-center gap-2 md:flex-row md:justify-between"
+      >
         <h4 class="font-extrabold text-xl">Best Deal For You</h4>
         <button
           id="sort_button"
+          onclick="sortByPrice(allPets)"
           class="bg-[#0E7A81] text-white px-7 py-3 rounded-xl"
         >
           Sort By Price
         </button>
       </section>
 
+      <!-- show spinner -->
+      <div
+        id="spinner_section"
+        class="min-h-[30vh] hidden flex justify-center items-center"
+      >
+        <span class="loading loading-bars loading-lg"></span>
+      </div>
       <!-- pets section -->
-      <section id="pets_section" class="flex">
+      <section id="pets_section" class="flex gap-2">
         <!-- left -->
-        <div id="pet-details" class="grid grid-cols-3 gap-3 w-4/6"></div>
+        <div
+          id="pet-details"
+          class="grid md:grid-cols-2 lg:grid-cols-3 gap-3 w-4/5"
+        ></div>
         <!-- Right -->
-        <div id="all_pet" class="w-2/6">Hi</div>
+        <div
+          id="like_pets"
+          class="grid lg:grid-cols-2 gap-2 content-start border border-gray-200 lg:p-5 rounded-md w-1/5 overflow-y-auto"
+        ></div>
       </section>
 
       <!-- modal section -->
       <div id="modal-section"></div>
-    </main>
 
-    <footer
-      class="footer bg-black text-neutral-content p-10 place-items-center"
-    >
+      <!-- testing modal -->
+      <button class="btn" onclick="my_modal_1.showModal()">open modal</button>
+      <dialog id="my_modal_1" class="modal">
+        <div class="modal-box">
+          <!-- count -->
+          <div class="text-center space-y-3">
+            <img
+              class="mx-auto"
+              src="https://img.icons8.com/?size=96&id=kRZicCB1E8B8&format=gif"
+              alt=""
+            />
+            <h6 class="text-3xl font-semibold">Congress</h6>
+            <p class="text-gray-500">Addoption Porcess is start for your pet</p>
+            <span class="countdown font-mono text-6xl">
+              <span
+                id="timer"
+                class="font-extrabold"
+                style="--value: '3'"
+              ></span>
+            </span>
+          </div>
+
+          <div class="modal-action">
+            <form method="dialog">
+              <!-- if there is a button in form, it will close the modal -->
+              <button id="closeBtn" class="btn hidden">Close</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
+    </main>
+    <!-- countdown -->
+
+    <footer class="footer bg-black text-neutral-content p-10">
       <nav>
         <div class="inline-flex items-center gap-2">
           <img src="image/logo.webp" alt="" />
@@ -242,7 +292,10 @@
       </form>
     </footer>
 
-    <script src="pet.js"></script>
-    <script src="showDetails.js"></script>
+    <script src="js/pet.js"></script>
+    <script src="js/showDetails.js"></script>
+    <script src="js/likePets.js"></script>
+    <script src="js/sortByPrice.js"></script>
+    <script src="js/countDown.js"></script>
   </body>
 </html>
