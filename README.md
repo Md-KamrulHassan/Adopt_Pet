@@ -24,4 +24,4 @@ Adopt_Pet is a pet adoption platform where users can browse and adopt pets accor
 
 ## Deployment
 
-🔗 [Live Site](https://xyz.netlify.com)
+🔗 [Live Site](https://adoptpetbd.netlify.app/)
